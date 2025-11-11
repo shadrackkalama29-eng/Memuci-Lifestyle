@@ -495,11 +495,11 @@ products: {
     price: 1600,
     category: "fashion",
     description: "<p>A timeless premium cotton t-shirt from the Memuci lifestyle brand. Available in Black, White, Maroon, and Navy Blue.</p>",
-    defaultImage: "https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/574977409_122153007710405844_4258779277454880366_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JS8T9KUQf5QQ7kNvwF5tfjQ&_nc_oc=AdkcWyKnjoFrrYZKSEvt58mnmPGW2Fvkxz_f-TddT4zCUT5KxxpWII3YA2KscOiTeqc&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=bYri2IzJSda2yeEmvwMU3w&oh=00_AfiMe7SP5X2hbLuUWBi-uUC7vWJi5ef-uDXKlRF8LlwZMA&oe=69121C57", // Image for the Black T-Shirt
+    defaultImage: "https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg", // Image for the Black T-Shirt
     variants: [
       {
         color: "Black",
-        image: "https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/574977409_122153007710405844_4258779277454880366_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JS8T9KUQf5QQ7kNvwF5tfjQ&_nc_oc=AdkcWyKnjoFrrYZKSEvt58mnmPGW2Fvkxz_f-TddT4zCUT5KxxpWII3YA2KscOiTeqc&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=bYri2IzJSda2yeEmvwMU3w&oh=00_AfiMe7SP5X2hbLuUWBi-uUC7vWJi5ef-uDXKlRF8LlwZMA&oe=69121C57",
+        image: "https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg",
       },
       {
         color: "White",
@@ -882,7 +882,7 @@ products: {
                         ).join('')}
                     </div>
                 </section>
-              <section id="category-section" class="bg-white py-16 md:py-24">
+               <section id="category-section" class="bg-white py-16 md:py-24">
       <div class="container mx-auto px-6">
         
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -894,11 +894,11 @@ products: {
           </p>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Card 1: Fashion -->
           <a href="#" class="page-link group relative block h-96 overflow-hidden rounded-lg shadow-lg" data-target="shop-page" data-category="fashion">
-            <div class="absolute inset-0 card-image" style="background-image: url('https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/574977409_122153007710405844_4258779277454880366_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JS8T9KUQf5QQ7kNvwF5tfjQ&_nc_oc=AdkcWyKnjoFrrYZKSEvt58mnmPGW2Fvkxz_f-TddT4zCUT5KxxpWII3YA2KscOiTeqc&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=bYri2IzJSda2yeEmvwMU3w&oh=00_AfiMe7SP5X2hbLuUWBi-uUC7vWJi5ef-uDXKlRF8LlwZMA&oe=69121C57');"></div>
+            <div class="absolute inset-0 card-image" style="background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg');"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-gray-start/60 group-hover:from-gray-900/70 group-hover:to-gray-end/70 transition-all duration-300"></div>
             <div class="relative h-full flex flex-col justify-between p-6 text-white">
               <span class="text-lg font-semibold uppercase tracking-wider">Fashion</span>
@@ -926,16 +926,18 @@ products: {
             </div>
           </a>
 
-          <!-- Card 4: Explore All -->
-          <a href="#" class="page-link group relative block h-96 overflow-hidden rounded-lg shadow-lg" data-target="shop-page" data-category="all">
-            <div class="absolute inset-0 card-image" style="background-image: url('https://cdn.pixabay.com/photo/2021/01/29/14/41/wardrobe-5961193_960_720.jpg');"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-orange-start/60 group-hover:from-gray-900/70 group-hover:to-orange-end/70 transition-all duration-300"></div>
-            <div class="relative h-full flex flex-col justify-between p-6 text-white">
-              <span class="text-lg font-semibold uppercase tracking-wider">Explore All</span>
-              <button class="bg-white text-black py-3 px-6 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 group-hover:bg-brand-base group-hover:text-white">Shop Collection</button>
-            </div>
-          </a>
+          <!-- Card 4: Explore All -- (REMOVED from grid) -->
 
+        </div>
+
+        <!-- "Explore All" button (ADDED below grid) -->
+        <div class="text-center mt-16">
+            <a href="#" 
+               class="page-link inline-block bg-brand-base text-white py-4 px-12 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
+                      hover:bg-brand-dark transition-colors"
+               data-target="shop-page" data-category="all">
+               Explore The Full Collection
+            </a>
         </div>
 
       </div>
@@ -1698,7 +1700,7 @@ document.body.addEventListener('click', (event) => {
                     <section class="py-20 px-6">
                         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                              <div class="md:order-1">
-                                <img src="https://scontent-mba2-1.xx.fbcdn.net/v/t39.30808-6/480206982_1049464547225642_1597351906335358262_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGEWsYlIyJRFrUBEIvocQjLsTCmANaqWROxMKYA1qpZE9pR2ZBkBXDPC9dmT5thmyjpO4ua-jzeeN9UsfPluRBJ&_nc_ohc=uSlkk-vnSrYQ7kNvwFwoD7I&_nc_oc=AdktHZma_5xhvAURz9a8nkh7HvU8tGXKGMXoLNhQkOav22aNOsFSG4phFdg6VFRGOmc&_nc_zt=23&_nc_ht=scontent-mba2-1.xx&_nc_gid=oakPd31nSjPqXKGTwRc2pA&oh=00_Afjv2emk9jAYL7vDNv_f7YIhQh1czqEQ0KO52LLXUEmmIg&oe=6911897B">
+                                <img src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t39.30808-6/480206982_1049464547225642_1597351906335358262_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=6AkWW8yIizoQ7kNvwEr6e6q&_nc_oc=AdnNaVbwKphN3A48gm7YP7R4ZXZRHnpmRvKs8zVHGnGTomuZTgAlOA_O0Iu8Pzp4q_4&_nc_zt=23&_nc_ht=scontent.fnbo10-1.fna&_nc_gid=zT9A8Pgs5QOIeh5kTtwFmw&oh=00_Afiul6hJtgVP2SmiEWLAq0TDLD4mr0kKTRi2zwPU-Ptfdg&oe=691901FB">
                             </div>
                             <div class="md:order-2 text-center md:text-left">
                                 <h2 class="text-4xl md:text-5xl font-serif text-brand-base leading-tight">A Word From Our Founder</h2>
@@ -2356,6 +2358,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
