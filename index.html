@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Added Alpine.js for UI interactivity -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -882,68 +881,105 @@ products: {
                             </a>`
                         ).join('')}
                     </div>
-           <section id="category-section" class="bg-white py-16 md:py-24">
-  <div class="container mx-auto px-6">
-    
-    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-      <h2 class="text-4xl md:text-5xl font-serif text-brand-dark-gray leading-tight">
-        The Mucè Collective
-      </h2>
-      <p class="text-lg text-gray-600 mt-4">
-        “A modern, curated space for style, culture, and creativity.”
-      </p>
-    </div>
-    
-    <a href="#" class="page-link group relative block" data-target="shop-page" data-category="fashion">
-      <div class="relative overflow-hidden rounded-lg aspect-video mb-6 md:mb-8">
-        <img src="https://cdn.pixabay.com/photo/2021/01/29/14/41/wardrobe-5961193_960_720.jpg" alt="Fashion" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </section>
+                <section id="category-section" class="bg-white py-16 md:py-24">
+      <div class="container mx-auto px-6">
         
-        <div class="absolute inset-0 flex items-center justify-center bg-black/60
-                    opacity-0 group-hover:opacity-100 
-                    transition-opacity duration-500 ease-in-out">
-          <span class="text-white text-xl md:text-2xl font-semibold uppercase tracking-wider">Shop Fashion</span>
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-4xl md:text-5xl font-serif text-brand-dark-gray leading-tight">
+            The Mucè Collective
+          </h2>
+          <p class="text-lg text-gray-600 mt-4">
+            “A modern, curated space for style, culture, and creativity.”
+          </p>
         </div>
-      </div>
-    </a>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-      
-      <a href="#" class="page-link group text-center" data-target="shop-page" data-category="beauty">
-        <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
-          <img src="https://cdn.pixabay.com/photo/2020/05/23/07/25/background-5208364_960_720.jpg" alt="Beauty" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-          <div class="absolute inset-0 flex items-center justify-center bg-black/60 
-                      opacity-0 group-hover:opacity-100 
-                      transition-opacity duration-500 ease-in-out">
-            <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+        
+        <a href="#" class="page-link group relative block" data-target="shop-page" data-category="fashion">
+          <div class="relative overflow-hidden rounded-lg aspect-video mb-6 md:mb-8">
+            <img src="https://cdn.pixabay.com/photo/2021/01/29/14/41/wardrobe-5961193_960_720.jpg" alt="Fashion" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            
+            <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                        opacity-0 group-hover:opacity-100 
+                        transition-opacity duration-500 ease-in-out">
+              <span class="text-white text-xl md:text-2xl font-semibold uppercase tracking-wider">Shop Fashion</span>
+            </div>
           </div>
-        </div>
-        <h3 class="font-semibold text-brand-base group-hover:underline">Beauty</h3>
-      </a>
-      
-      <a href="#" class="page-link group text-center" data-target="shop-page" data-category="wine">
-        <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
-          <img src="https://cdn.pixabay.com/photo/2018/01/12/09/45/glass-3077869_1280.jpg" alt="Wine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-          <div class="absolute inset-0 flex items-center justify-center bg-black/60 
-                      opacity-0 group-hover:opacity-100 
-                      transition-opacity duration-500 ease-in-out">
-            <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
-          </div>
-        </div>
-        <h3 class="font-semibold text-brand-base group-hover:underline">Wine</h3>
-      </a>
-      
-      </div>
-
-    <div class="text-center mt-16">
-        <a href="#" 
-           class="page-link inline-block bg-brand-base text-white py-4 px-12 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
-                  hover:bg-brand-dark transition-colors"
-           data-target="shop-page" data-category="all">
-           Explore The Full Collection
         </a>
-    </div>
 
-  </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          
+          <a href="#" class="page-link group text-center" data-target="shop-page" data-category="beauty">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+              <img src="https://cdn.pixabay.com/photo/2020/05/23/07/25/background-5208364_960_720.jpg" alt="Beauty" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                          opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-500 ease-in-out">
+                <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+              </div>
+            </div>
+            <h3 class="font-semibold text-brand-base group-hover:underline">Beauty</h3>
+          </a>
+          
+          <a href="#" class="page-link group text-center" data-target="shop-page" data-category="wine">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+              <img src="https://cdn.pixabay.com/photo/2018/01/12/09/45/glass-3077869_1280.jpg" alt="Wine" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                          opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-500 ease-in-out">
+                <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+              </div>
+            </div>
+            <h3 class="font-semibold text-brand-base group-hover:underline">Wine</h3>
+          </a>
+          
+          <a href="#" class="page-link group text-center" data-target="shop-page" data-category="gardening">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+              <img src="https://cdn.pixabay.com/photo/2017/03/27/14/34/garden-2179095_960_720.jpg" alt="Gardening" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                          opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-500 ease-in-out">
+                <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+              </div>
+            </div>
+            <h3 class="font-semibold text-brand-base group-hover:underline">Gardening</h3>
+          </a>
+          
+          <a href="#" class="page-link group text-center" data-target="shop-page" data-category="crafts">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+              <img src="https://cdn.pixabay.com/photo/2016/11/18/21/57/art-1837073_960_720.jpg" alt="Crafts" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                          opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-500 ease-in-out">
+                <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+              </div>
+            </div>
+            <h3 class="font-semibold text-brand-base group-hover:underline">Crafts</h3>
+          </a>
+          
+          <a href="#" class="page-link group text-center" data-target="shop-page" data-category="books">
+            <div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+              <img src="https://cdn.pixabay.com/photo/2020/12/29/10/38/bookshop-5870155_960_720.jpg" alt="Books" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/60 
+                          opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-500 ease-in-out">
+                <span class="text-white text-sm font-semibold uppercase tracking-wider">Shop Now</span>
+              </div>
+            </div>
+            <h3 class="font-semibold text-brand-base group-hover:underline">Books</h3>
+          </a>
+          
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="#" 
+               class="page-link inline-block bg-brand-base text-white py-4 px-12 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
+                      hover:bg-brand-dark transition-colors"
+               data-target="shop-page" data-category="all">
+               Explore The Full Collection
+            </a>
+        </div>
+
+      </div>
 </section>
                  <section class="relative bg-brand-base text-white py-20 px-6 animate-on-scroll">
                      <div class="absolute inset-0 opacity-10">
@@ -1247,163 +1283,34 @@ products: {
             };
 
             const renderRecipePage = (data) => {
-    const recipe = content.recipes[data.title];
-    if (!recipe) return `<div class="p-12 text-center"><h1 class="text-4xl font-serif">Recipe Not Found</h1></div>`;
-    
-    // The 'recipeText' const is no longer needed here
+                const recipe = content.recipes[data.title];
+                if(!recipe) return `<div class="p-12 text-center"><h1 class="text-4xl font-serif">Recipe Not Found</h1></div>`;
+                const recipeText = createRecipeTextForDownload(data.title);
 
-    return `
-    <div class="py-16">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="flex justify-between items-center mb-8">
-                <a href="#" onclick="history.back()" class="text-sm uppercase tracking-widest text-brand-gray inline-block">&larr; Back</a>
-               <a href="#" onclick="handleRecipeDownload(event, '${data.title}')" class="inline-block bg-brand-base text-white py-2 px-4 text-xs font-semibold cta-button rounded-md">Download PDF</a>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-serif text-brand-base mt-2">${data.title}</h1>
-            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-gray my-6">
-                <span><strong>Prep Time:</strong> ${recipe.prepTime}</span>
-                <span><strong>Cook Time:</strong> ${recipe.cookTime}</span>
-                <span><strong>Servings:</strong> ${recipe.servings}</span>
-            </div>
-            <img src="${recipe.image}" class="w-full rounded-lg mt-8 mb-12">
-            <div class="prose text-brand-base">
-                <p>${recipe.description}</p>
-                <h3>Ingredients</h3>
-                <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
-                <h3>Instructions</h3>
-                <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
-            </div>
-        </div>
-    </div>`;
-};
-         /**
- * Handles downloading the recipe as a PDF with image and layout.
- * Make sure this is on the global scope (window.handleRecipeDownload)
- */
-window.handleRecipeDownload = async function(event, title) {
-    event.preventDefault();
-    const button = event.target; // Get the button element
-
-    // 1. Get the recipe data
-    const recipe = content.recipes[title];
-    if (!recipe) {
-        alert("Could not find recipe data.");
-        return;
-    }
-
-    // 2. Set loading state
-    button.innerText = "Generating...";
-    button.disabled = true;
-
-    try {
-        // 3. Initialize PDF
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF('p', 'mm', 'a4'); // Portrait, millimeters, A4 size
-        const margin = 15;
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const contentWidth = pageWidth - (margin * 2);
-        let yPos = 20; // Y-position tracker
-
-        // 4. Load and Add Image
-        // This is the async part. We wait for the image to be converted.
-        const imgData = await toBase64(recipe.image);
-        if (imgData) {
-            // We'll make the image fit the content width
-            const imgProps = doc.getImageProperties(imgData);
-            const imgHeight = (imgProps.height * contentWidth) / imgProps.width;
-            doc.addImage(imgData, imgProps.format, margin, yPos, contentWidth, imgHeight);
-            yPos += imgHeight + 10; // Add 10mm padding after image
-        } else {
-            doc.text("Image could not be loaded (CORS error)", margin, yPos);
-            yPos += 10;
-        }
-
-        // 5. Add Title
-        doc.setFontSize(22);
-        doc.setFont('times', 'bold');
-        // Split title in case it's too long
-        const titleLines = doc.splitTextToSize(title, contentWidth);
-        doc.text(titleLines, margin, yPos);
-        yPos += (titleLines.length * 8) + 5; // Adjust yPos based on lines
-
-        // 6. Add Prep/Cook Time
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'normal');
-        const details = `Prep: ${recipe.prepTime}  |  Cook: ${recipe.cookTime}  |  Servings: ${recipe.servings}`;
-        doc.text(details, margin, yPos);
-        yPos += 10;
-
-        // 7. Add Description
-        doc.setFontSize(12);
-        doc.setFont('times', 'normal');
-        const descLines = doc.splitTextToSize(recipe.description, contentWidth);
-        doc.text(descLines, margin, yPos);
-        yPos += (descLines.length * 5) + 10;
-
-        // 8. Add Ingredients
-        doc.setFontSize(16);
-        doc.setFont('times', 'bold');
-        doc.text("Ingredients", margin, yPos);
-        yPos += 8;
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'normal');
-        for (const item of recipe.ingredients) {
-            // Add bullet point
-            const itemLines = doc.splitTextToSize(item, contentWidth - 5); // Indent a bit
-            doc.text('•', margin, yPos + 0.5); // Bullet
-            doc.text(itemLines, margin + 5, yPos); // Text
-            yPos += (itemLines.length * 5) + 2;
-        }
-        yPos += 5;
-
-        // 9. Add Instructions
-        doc.setFontSize(16);
-        doc.setFont('times', 'bold');
-        doc.text("Instructions", margin, yPos);
-        yPos += 8;
-        doc.setFontSize(10);
-        doc.setFont('helvetica', 'normal');
-        let step = 1;
-        for (const item of recipe.instructions) {
-            // Add number
-            const itemLines = doc.splitTextToSize(item, contentWidth - 5);
-            doc.text(step + ".", margin, yPos); // Number
-            doc.text(itemLines, margin + 5, yPos); // Text
-            yPos += (itemLines.length * 5) + 2;
-            step++;
-        }
-
-        // 10. Save the PDF
-        doc.save(`${title}.pdf`);
-
-    } catch (e) {
-        console.error("Error generating PDF:", e);
-        alert("Sorry, there was an error creating the PDF.");
-    } finally {
-        // 11. Reset button
-        button.innerText = "Download PDF";
-        button.disabled = false;
-    }
-}
-            /**
- * Fetches an image and converts it to a Base64 data URL.
- * NOTE: This will fail if the image is on a different domain (CORS error).
- */
-const toBase64 = async (url) => {
-    try {
-        const response = await fetch(url);
-        const blob = await response.blob();
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(blob);
-        });
-    } catch (e) {
-        console.error("CORS Error: Cannot fetch image from", url);
-        return null; // Return null if fetching fails
-    }
-};
+                return `
+                <div class="py-16">
+                    <div class="container mx-auto px-6 max-w-3xl">
+                         <div class="flex justify-between items-center mb-8">
+                            <a href="#" onclick="history.back()" class="text-sm uppercase tracking-widest text-brand-gray inline-block">&larr; Back</a>
+                            <a href="data:text/plain;charset=utf-8,${recipeText}" download="${data.title}.txt" class="inline-block bg-brand-base text-white py-2 px-4 text-xs font-semibold cta-button rounded-md">Download Recipe</a>
+                         </div>
+                        <h1 class="text-4xl md:text-5xl font-serif text-brand-base mt-2">${data.title}</h1>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-gray my-6">
+                            <span><strong>Prep Time:</strong> ${recipe.prepTime}</span>
+                            <span><strong>Cook Time:</strong> ${recipe.cookTime}</span>
+                            <span><strong>Servings:</strong> ${recipe.servings}</span>
+                        </div>
+                        <img src="${recipe.image}" class="w-full rounded-lg mt-8 mb-12">
+                        <div class="prose text-brand-base">
+                            <p>${recipe.description}</p>
+                            <h3>Ingredients</h3>
+                            <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
+                            <h3>Instructions</h3>
+                            <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+                        </div>
+                    </div>
+                </div>`;
+            };
             
             const renderRecipesCollectionPage = () => {
                 const allRecipes = Object.entries(content.recipes).map(([title, recipe]) => ({...recipe, title}));
@@ -2361,15 +2268,6 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
