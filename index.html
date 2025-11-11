@@ -1422,6 +1422,25 @@ window.handleRecipeDownload = async function(event, title) {
         button.disabled = false;
     }
 }
+            /**
+ * Fetches an image and converts it to a Base64 data URL.
+ * NOTE: This will fail if the image is on a different domain (CORS error).
+ */
+const toBase64 = async (url) => {
+    try {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    } catch (e) {
+        console.error("CORS Error: Cannot fetch image from", url);
+        return null; // Return null if fetching fails
+    }
+};
             
             const renderRecipesCollectionPage = () => {
                 const allRecipes = Object.entries(content.recipes).map(([title, recipe]) => ({...recipe, title}));
@@ -2379,6 +2398,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
