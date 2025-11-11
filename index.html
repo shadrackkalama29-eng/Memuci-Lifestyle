@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Added Alpine.js for UI interactivity -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -34,6 +35,7 @@
              /* A stronger, more prominent shadow on hover */
             box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.12);
         /* Custom gradient for orange cards */
+        }
         .gradient-orange {
             background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
             --tw-gradient-stops: var(--tw-gradient-from, #F9A825), var(--tw-gradient-to, #F57C00);
@@ -564,11 +566,11 @@ products: {
     price: 1600,
     category: "fashion",
     description: "<p>A timeless premium cotton t-shirt from the Memuci lifestyle brand. Available in Black, White, Maroon, and Navy Blue.</p>",
-    defaultImage: "https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg", // Image for the Black T-Shirt
+    defaultImage: "https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/574977409_122153007710405844_4258779277454880366_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JS8T9KUQf5QQ7kNvwF5tfjQ&_nc_oc=AdkcWyKnjoFrrYZKSEvt58mnmPGW2Fvkxz_f-TddT4zCUT5KxxpWII3YA2KscOiTeqc&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=bYri2IzJSda2yeEmvwMU3w&oh=00_AfiMe7SP5X2hbLuUWBi-uUC7vWJi5ef-uDXKlRF8LlwZMA&oe=69121C57", // Image for the Black T-Shirt
     variants: [
       {
         color: "Black",
-        image: "https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg",
+        image: "https://scontent.fnbo9-1.fna.fbcdn.net/v/t39.30808-6/574977409_122153007710405844_4258779277454880366_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JS8T9KUQf5QQ7kNvwF5tfjQ&_nc_oc=AdkcWyKnjoFrrYZKSEvt58mnmPGW2Fvkxz_f-TddT4zCUT5KxxpWII3YA2KscOiTeqc&_nc_zt=23&_nc_ht=scontent.fnbo9-1.fna&_nc_gid=bYri2IzJSda2yeEmvwMU3w&oh=00_AfiMe7SP5X2hbLuUWBi-uUC7vWJi5ef-uDXKlRF8LlwZMA&oe=69121C57",
       },
       {
         color: "White",
@@ -951,78 +953,152 @@ products: {
                         ).join('')}
                     </div>
                 </section>
-                </style>
-</head>
-<body class="bg-gray-50 font-sans">
+                <style>
+  /* Fashion Card: 4-image slideshow */
+  @keyframes slide-fashion {
+    0%   { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); }
+    20%  { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); } /* Hold Img 1 */
+    25%  { background-image: url('https://i.pinimg.com/736x/1f/95/99/1f95999c31ed040d950d1d3dca862728.jpg'); } /* Fade to Img 2 */
+    45%  { background-image: url('https://i.pinimg.com/736x/1f/95/99/1f95999c31ed040d950d1d3dca862728.jpg'); } /* Hold Img 2 */
+    50%  { background-image: url('https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg'); } /* Fade to Img 3 */
+    70%  { background-image: url('https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg'); } /* Hold Img 3 */
+    75%  { background-image: url('https://i.pinimg.com/736x/81/8b/15/818b157502a3a2951a834697c8033ed3.jpg'); } /* Fade to Img 4 */
+    95%  { background-image: url('https://i.pinimg.com/736x/81/8b/15/818b157502a3a2951a834697c8033ed3.jpg'); } /* Hold Img 4 */
+    100% { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); } /* Fade back to Img 1 */
+  }
+  .card-image-slide-fashion {
+    animation: slide-fashion 16s linear infinite; /* 16s total (4s per image) */
+  }
 
-   
-    <section id="category-section" class="bg-white py-16 md:py-24">
-      <div class="container mx-auto px-6">
+  /* Beauty Card: 2-image slideshow */
+  @keyframes slide-beauty {
+    0%   { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); }
+    45%  { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); } /* Hold Img 1 */
+    50%  { background-image: url('https://i.pinimg.com/736x/4e/13/6d/4e136d48569dd75c7060ec9359286484.jpg'); } /* Fade to Img 2 */
+    95%  { background-image: url('https://i.pinimg.com/736x/4e/13/6d/4e136d48569dd75c7060ec9359286484.jpg'); } /* Hold Img 2 */
+    100% { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); } /* Fade back to Img 1 */
+  }
+  .card-image-slide-beauty {
+    animation: slide-beauty 8s linear infinite; /* 8s total (4s per image) */
+  }
+
+  /* NEW: Wine Card: 2-image slideshow */
+  @keyframes slide-wine {
+    0%   { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); }
+    45%  { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); } /* Hold Img 1 */
+    50%  { background-image: url('https://i.pinimg.com/1200x/57/42/55/574255f7795f1826ed3580af21b34b96.jpg'); } /* Fade to Img 2 */
+    95%  { background-image: url('https://i.pinimg.com/1200x/57/42/55/574255f7795f1826ed3580af21b34b96.jpg'); } /* Hold Img 2 */
+    100% { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); } /* Fade back to Img 1 */
+  }
+  .card-image-slide-wine {
+    animation: slide-wine 8s linear infinite; /* 8s total (4s per image) */
+  }
+</style>
+
+
+<section id="category-section" class="bg-stone-50 py-16 md:py-24">
+  <div class="container mx-auto px-6">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <h2 class="text-4xl md:text-5xl font-serif text-brown-900 leading-tight">
+        The Mucè Collective
+      </h2>
+      <p class="text-lg text-gray-600 mt-4">
+        “A modern, curated space for style, culture, and creativity.”
+      </p>
+      <hr class="mt-8 border-gray-300 w-1/4 mx-auto">
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <a href="#" 
+         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
+         data-target="shop-page" data-category="fashion">
         
-        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 class="text-4xl md:text-5xl font-serif text-brand-dark-gray leading-tight">
-            The Mucè Collective
-          </h2>
-          <p class="text-lg text-gray-600 mt-4">
-            “A modern, curated space for style, culture, and creativity.”
+        <div class="relative h-96 overflow-hidden">
+          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-fashion">
+          </div>
+        </div>
+        
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
+            Fashion
+          </h3>
+          <p class="inline-block text-sm text-gray-500 mt-1 
+                    group-hover:text-stone-800 
+                    bg-gradient-to-r from-stone-800 to-stone-800 
+                    bg-no-repeat bg-bottom [background-size:0%_1px] 
+                    group-hover:[background-size:100%_1px] 
+                    transition-all duration-300 ease-in-out">
+            Shop The Collection
           </p>
-          <!-- Added horizontal border -->
-          <hr class="mt-8 border-gray-200 w-1/2 mx-auto">
+        </div>
+      </a>
+
+      <a href="#" 
+         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
+         data-target="shop-page" data-category="beauty">
+        
+        <div class="relative h-96 overflow-hidden">
+          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-beauty">
+          </div>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Card 1: Fashion -->
-          <!-- Replaced shadow-lg with shadow-uniform -->
-          <a href="#" class="page-link group relative block h-96 overflow-hidden rounded-lg shadow-uniform" data-target="shop-page" data-category="fashion">
-            <div class="absolute inset-0 card-image" style="background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg');"></div>
-            <!-- Removed gradient overlay -->
-            <!-- Changed text-white to text-brand-base and added shadow to span -->
-            <div class="relative h-full flex flex-col justify-between p-6 text-brand-base">
-              <span class="text-lg font-semibold uppercase tracking-wider [text-shadow:_1px_1px_2px_rgba(255,255,255,0.7)]">Fashion</span>
-              <button class="bg-white text-black py-3 px-6 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 group-hover:bg-brand-base group-hover:text-white">Shop Now</button>
-            </div>
-          </a>
-
-          <!-- Card 2: Beauty -->
-          <!-- Replaced shadow-lg with shadow-uniform -->
-          <a href="#" class="page-link group relative block h-96 overflow-hidden rounded-lg shadow-uniform" data-target="shop-page" data-category="beauty">
-            <div class="absolute inset-0 card-image" style="background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg');"></div>
-            <!-- Removed gradient overlay -->
-            <!-- Changed text-white to text-brand-base and added shadow to span -->
-            <div class="relative h-full flex flex-col justify-between p-6 text-brand-base">
-              <span class="text-lg font-semibold uppercase tracking-wider [text-shadow:_1px_1px_2px_rgba(255,255,255,0.7)]">Beauty</span>
-              <button class="bg-white text-black py-3 px-6 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 group-hover:bg-brand-base group-hover:text-white">Shop Now</button>
-            </div>
-          </a>
-          
-          <!-- Card 3: Wine -->
-          <!-- Replaced shadow-lg with shadow-uniform -->
-          <a href="#" class="page-link group relative block h-96 overflow-hidden rounded-lg shadow-uniform" data-target="shop-page" data-category="wine">
-            <div class="absolute inset-0 card-image" style="background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg');"></div>
-            <!-- Removed gradient overlay -->
-            <!-- Changed text-white to text-brand-base and added shadow to span -->
-            <div class="relative h-full flex flex-col justify-between p-6 text-brand-base">
-              <span class="text-lg font-semibold uppercase tracking-wider [text-shadow:_1px_1px_2px_rgba(255,255,255,0.7)]">Wine</span>
-              <button class="bg-white text-black py-3 px-6 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 group-hover:bg-brand-base group-hover:text-white">Shop Now</button>
-            </div>
-          </a>
-
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
+            Beauty
+          </h3>
+          <p class="inline-block text-sm text-gray-500 mt-1 
+                    group-hover:text-stone-800 
+                    bg-gradient-to-r from-stone-800 to-stone-800 
+                    bg-no-repeat bg-bottom [background-size:0%_1px] 
+                    group-hover:[background-size:100%_1px] 
+                    transition-all duration-300 ease-in-out">
+            Shop The Collection
+          </p>
         </div>
-
-        <!-- "Explore All" button (with shine animation) -->
-        <div class="text-center mt-16">
-            <a href="#" 
-               class="page-link inline-block bg-brand-base text-white py-4 px-12 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
-                      hover:bg-brand-dark transition-colors glowing-button"
-               data-target="shop-page" data-category="all">
-               Explore The Full Collection
-            </a>
+      </a>
+      
+      <a href="#" 
+         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
+         data-target="shop-page" data-category="wine">
+        
+        <div class="relative h-96 overflow-hidden">
+          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-wine">
+          </div>
         </div>
+        
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
+            Wine
+          </h3>
+          <p class="inline-block text-sm text-gray-500 mt-1 
+                    group-hover:text-stone-800 
+                    bg-gradient-to-r from-stone-800 to-stone-800 
+                    bg-no-repeat bg-bottom [background-size:0%_1px] 
+                    group-hover:[background-size:100%_1px] 
+                    transition-all duration-300 ease-in-out">
+            Shop The Collection
+          </p>
+        </div>
+      </a>
 
-      </div>
-    </section>
+    </div>
 
+    <div class="text-center mt-16">
+        <a href="#" 
+           class="page-link inline-block bg-transparent text-stone-800 py-3 px-10 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
+                  border border-stone-800
+                  transition-all duration-300
+                  hover:bg-brown-800 hover:text-white
+                  focus:outline-none focus:ring-2 focus:ring-brown-800 focus:ring-opacity-50"
+           data-target="shop-page" data-category="all">
+          Explore The Full Collection
+        </a>
+    </div>
+
+  </div>
+</section>
                  <section class="relative bg-brand-base text-white py-20 px-6 animate-on-scroll">
                      <div class="absolute inset-0 opacity-10">
                         <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
@@ -1323,8 +1399,7 @@ products: {
                     </div>
                 </div>`;
             };
-
-             const renderRecipePage = (data) => {
+ const renderRecipePage = (data) => {
     const recipe = content.recipes[data.title];
     if (!recipe) return `<div class="p-12 text-center"><h1 class="text-4xl font-serif">Recipe Not Found</h1></div>`;
     
@@ -1781,7 +1856,7 @@ document.body.addEventListener('click', (event) => {
                     <section class="py-20 px-6">
                         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                              <div class="md:order-1">
-                                <img src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t39.30808-6/480206982_1049464547225642_1597351906335358262_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=6AkWW8yIizoQ7kNvwEr6e6q&_nc_oc=AdnNaVbwKphN3A48gm7YP7R4ZXZRHnpmRvKs8zVHGnGTomuZTgAlOA_O0Iu8Pzp4q_4&_nc_zt=23&_nc_ht=scontent.fnbo10-1.fna&_nc_gid=zT9A8Pgs5QOIeh5kTtwFmw&oh=00_Afiul6hJtgVP2SmiEWLAq0TDLD4mr0kKTRi2zwPU-Ptfdg&oe=691901FB">
+                                <img src="https://scontent-mba2-1.xx.fbcdn.net/v/t39.30808-6/480206982_1049464547225642_1597351906335358262_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGEWsYlIyJRFrUBEIvocQjLsTCmANaqWROxMKYA1qpZE9pR2ZBkBXDPC9dmT5thmyjpO4ua-jzeeN9UsfPluRBJ&_nc_ohc=uSlkk-vnSrYQ7kNvwFwoD7I&_nc_oc=AdktHZma_5xhvAURz9a8nkh7HvU8tGXKGMXoLNhQkOav22aNOsFSG4phFdg6VFRGOmc&_nc_zt=23&_nc_ht=scontent-mba2-1.xx&_nc_gid=oakPd31nSjPqXKGTwRc2pA&oh=00_Afjv2emk9jAYL7vDNv_f7YIhQh1czqEQ0KO52LLXUEmmIg&oe=6911897B">
                             </div>
                             <div class="md:order-2 text-center md:text-left">
                                 <h2 class="text-4xl md:text-5xl font-serif text-brand-base leading-tight">A Word From Our Founder</h2>
@@ -2439,23 +2514,6 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
