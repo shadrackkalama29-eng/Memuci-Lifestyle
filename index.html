@@ -1283,34 +1283,36 @@ products: {
             };
 
             const renderRecipePage = (data) => {
-                const recipe = content.recipes[data.title];
-                if(!recipe) return `<div class="p-12 text-center"><h1 class="text-4xl font-serif">Recipe Not Found</h1></div>`;
-                const recipeText = createRecipeTextForDownload(data.title);
+    const recipe = content.recipes[data.title];
+    if (!recipe) return `<div class="p-12 text-center"><h1 class="text-4xl font-serif">Recipe Not Found</h1></div>`;
+    
+    // The 'recipeText' const is no longer needed here
 
-                return `
-                <div class="py-16">
-                    <div class="container mx-auto px-6 max-w-3xl">
-                         <div class="flex justify-between items-center mb-8">
-                            <a href="#" onclick="history.back()" class="text-sm uppercase tracking-widest text-brand-gray inline-block">&larr; Back</a>
-                            <a href="data:text/plain;charset=utf-8,${recipeText}" download="${data.title}.txt" class="inline-block bg-brand-base text-white py-2 px-4 text-xs font-semibold cta-button rounded-md">Download Recipe</a>
-                         </div>
-                        <h1 class="text-4xl md:text-5xl font-serif text-brand-base mt-2">${data.title}</h1>
-                        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-gray my-6">
-                            <span><strong>Prep Time:</strong> ${recipe.prepTime}</span>
-                            <span><strong>Cook Time:</strong> ${recipe.cookTime}</span>
-                            <span><strong>Servings:</strong> ${recipe.servings}</span>
-                        </div>
-                        <img src="${recipe.image}" class="w-full rounded-lg mt-8 mb-12">
-                        <div class="prose text-brand-base">
-                            <p>${recipe.description}</p>
-                            <h3>Ingredients</h3>
-                            <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
-                            <h3>Instructions</h3>
-                            <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
-                        </div>
-                    </div>
-                </div>`;
-            };
+    return `
+    <div class="py-16">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" onclick="history.back()" class="text-sm uppercase tracking-widest text-brand-gray inline-block">&larr; Back</a>
+                
+                <a href="#" onclick="handleRecipeDownload(event, '${data.title}')" class="inline-block bg-brand-base text-white py-2 px-4 text-xs font-semibold cta-button rounded-md">Download PDF</a>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-serif text-brand-base mt-2">${data.title}</h1>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-gray my-6">
+                <span><strong>Prep Time:</strong> ${recipe.prepTime}</span>
+                <span><strong>Cook Time:</strong> ${recipe.cookTime}</span>
+                <span><strong>Servings:</strong> ${recipe.servings}</span>
+            </div>
+            <img src="${recipe.image}" class="w-full rounded-lg mt-8 mb-12">
+            <div class="prose text-brand-base">
+                <p>${recipe.description}</p>
+                <h3>Ingredients</h3>
+                <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
+                <h3>Instructions</h3>
+                <ol>${recipe.instructions.map(i => `<li>${i}</li>`).join('')}</ol>
+            </div>
+        </div>
+    </div>`;
+};
             
             const renderRecipesCollectionPage = () => {
                 const allRecipes = Object.entries(content.recipes).map(([title, recipe]) => ({...recipe, title}));
@@ -2268,6 +2270,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
