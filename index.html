@@ -21,6 +21,15 @@
         }
     </script>
     <style>
+        /* --- New Uniform Shadow Class --- */
+        .shadow-uniform {
+            /* This shadow is even on all sides */
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .shadow-uniform:hover {
+             /* A stronger, more prominent shadow on hover */
+            box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.12);
         /* Custom gradient for orange cards */
         .gradient-orange {
             background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -2427,6 +2436,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
