@@ -36,7 +36,17 @@
             background-size: cover;
             background-position: center top; /* Changed from 'center' to 'center top' */
         }
- /* The shine pseudo-element */
+ 
+        /* --- Replaced 'pulse-glow' with 'shine-right-to-left' --- */
+        .glowing-button {
+            position: relative;
+            overflow: hidden; /* This is key to clip the shine */
+            /* Ensure the button's own styles override any defaults */
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        /* The shine pseudo-element */
         .glowing-button::after {
             content: '';
             position: absolute;
@@ -59,14 +69,12 @@
             animation-delay: 1s; /* Add a delay between shines */
         }
 
-        @keyframes pulse-glow {
-          0%, 100% {
-            opacity: 0.4;
-            transform: scale(1);
+        @keyframes shine-right-to-left {
+          0% {
+            left: 120%;
           }
-          50% {
-            opacity: 0.9;
-            transform: scale(1.04);
+          100% {
+            left: -120%;
           }
         }
         /* --- End of added CSS --- */
@@ -2415,6 +2423,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
