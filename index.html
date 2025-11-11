@@ -21,6 +21,60 @@
         }
     </script>
     <style>
+        /* Custom gradient for orange cards */
+        .gradient-orange {
+            background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+            --tw-gradient-stops: var(--tw-gradient-from, #F9A825), var(--tw-gradient-to, #F57C00);
+        }
+        /* Custom gradient for gray cards */
+        .gradient-gray {
+            background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+            --tw-gradient-stops: var(--tw-gradient-from, #374151), var(--tw-gradient-to, #1F2937);
+        }
+        /* Ensure images cover their container without distortion */
+        .card-image {
+            background-size: cover;
+            background-position: center top; /* Changed from 'center' to 'center top' */
+        }
+
+        /* --- Added for glowing button --- */
+        .glowing-button {
+          position: relative; /* Needed for the pseudo-element */
+          z-index: 1; /* Ensure button is on top */
+          border-radius: 0.375rem; /* Matches rounded-md */
+        }
+
+        .glowing-button::after {
+          content: '';
+          position: absolute;
+          /* Make it slightly larger than the button */
+          top: -3px; 
+          left: -3px;
+          right: -3px;
+          bottom: -3px;
+          /* Use the button's color from Tailwind config */
+          background: #8A5A44; /* brand-base */
+          /* Create the glow */
+          filter: blur(12px);
+          /* Send it behind the button */
+          z-index: -1;
+          /* Start the animation */
+          animation: pulse-glow 2.5s infinite ease-in-out;
+          border-radius: inherit; /* Match button's rounded corners */
+          opacity: 0.7;
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.9;
+            transform: scale(1.04);
+          }
+        }
+        /* --- End of added CSS --- */
         .cta-button { transition: all 0.3s ease-in-out; }
         .cta-button:hover { background-color: #651a2c; color: #FFFFFF; }
         .nav-link { position: relative; transition: color 0.3s; }
@@ -2366,6 +2420,7 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
 
 
 
