@@ -2061,31 +2061,51 @@ document.body.addEventListener('click', (event) => {
                  const editorPickTitles = ["Business Playbook – Strategies, Entrepreneurial Tips, Money Talk", "Beauty Rituals – Skincare, Wellness, Glow Guides", "Travel Diaries – Weekend Getaways, Kenyan Gems, Destination Guides"];
 
                 return `
-                <div class="bg-white">
-                    <!-- Founder Section -->
-                    <section class="py-20 px-6">
-                        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 my-12">
-    <div class="order-2 md:order-1 font-serif text-center md:text-left">
-        </div>
+               <div class="bg-white">
+    <section class="py-20 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-20 my-12">
+            
+            <div class="order-2 md:order-1 text-center md:text-left">
+                <span class="text-xs font-bold tracking-[0.3em] text-stone-400 uppercase mb-4 block">
+                    The Vision
+                </span>
 
-    <div class="order-1 md:order-2">
-        <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl max-w-md mx-auto">
-            <img src="https://i.pinimg.com/1200x/6c/c2/0f/6cc20f0519544d3cad699f01fd7dc7c3.jpg" 
-                 alt="Portrait"
-                 class="w-full h-full object-cover object-top">
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-base leading-tight mb-6">
+                    A Word From Our Founder
+                </h2>
+                
+                <div class="w-16 h-0.5 bg-brand-base/20 mx-auto md:mx-0 mb-8"></div>
+
+                <p class="text-gray-600 mt-6 max-w-lg mx-auto md:mx-0 leading-relaxed font-light text-lg">
+                    "Carolyne Kirgotty is the voice and vision behind Memuci Lifestyle, a modern African brand born from the realness of motherhood, adulting, and self-discovery. Through storytelling, style, and soulful conversation, she invites others to slow down, breathe, and find beauty in ordinary moments."
+                </p>
+                
+                <p class="text-gray-600 mt-4 max-w-lg mx-auto md:mx-0 leading-relaxed font-light">
+                    Her work is grounded in warmth, truth, and a belief that even in chaos, life can still feel soft, human, and full of grace.
+                </p>
+
+                <blockquote class="mt-8 text-2xl font-serif text-brand-base italic border-l-4 border-brand-base/30 pl-6 mx-auto md:mx-0 max-w-md">
+                    “Soft living. Real talk. Everyday joy. 🌿”
+                </blockquote>
+
+                <div class="mt-10">
+                    <p class="font-serif text-xl font-bold text-gray-900">Carolyne Kirgotty</p>
+                    <p class="text-sm text-gray-500 uppercase tracking-wider">Founder & Creative Director, Memuci Lifestyle</p>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2">
+                <div class="aspect-[4/5] md:aspect-square rounded-tl-[5rem] rounded-br-3xl overflow-hidden shadow-2xl max-w-md mx-auto relative group">
+                    <div class="absolute inset-0 bg-brand-base/5 group-hover:bg-transparent transition-all duration-500"></div>
+                    <img src="https://i.pinimg.com/1200x/6c/c2/0f/6cc20f0519544d3cad699f01fd7dc7c3.jpg" 
+                         alt="Carolyne Kirgotty"
+                         class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
 </div>
-                            <div class="md:order-2 text-center md:text-left">
-                                <h2 class="text-4xl md:text-5xl font-serif text-brand-base leading-tight">A Word From Our Founder</h2>
-                                <p class="text-brand-gray mt-6 max-w-md mx-auto md:mx-0">"Carolyne Kirgotty is the voice and vision behind Memuci Lifestyle, 
-                                    a modern African brand born from the realness of motherhood, adulting, and self-discovery. Through storytelling, style, and soulful conversation, she invites others to slow down, breathe, and find beauty in ordinary moments. Her work is grounded in warmth, truth, and a belief that even in chaos, life can still feel soft, human, and full of grace."</p>
-                                <blockquote class="mt-6 text-2xl font-serif text-brand-base italic">“Soft living. Real talk. Everyday joy. 🌿”</blockquote>
-                                <p class="font-serif text-xl mt-6">Carolyne Kirgotty</p>
-                                <p class="text-sm text-brand-gray">Founder & Creative Director, Memuci Lifestyle</p>
-                            </div>
-                        </div>
-                    </section>
 <section class="py-20 md:py-28 bg-stone-50 overflow-hidden">
     <div class="container mx-auto px-6 max-w-7xl">
         <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
