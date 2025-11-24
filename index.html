@@ -22,6 +22,78 @@
         }
     </script>
     <style>
+    /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background-color: #fcfaf8; /* Brand Base Color */
+            z-index: 9999; /* Ensure it sits on top of everything */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+        }
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .preloader-text-container {
+            text-align: center;
+            color: white;
+            animation: pulse-slow 3s infinite ease-in-out;
+            color: #701C1C;
+        }
+        .preloader-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #701C1C;
+        }
+        .preloader-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.4em;
+            margin-top: 0.5rem;
+            opacity: 1.9;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.98); }
+        }
+        .gallery-item {
+    width: 120px;  /* Make this smaller to shrink the box */
+    height: 120px; /* Make this smaller to shrink the box */
+    margin: 5px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+        /* The container holding all images */
+.gallery-grid {
+  display: grid;
+  /* ADJUST SIZE HERE: Change 150px to 100px for smaller, 200px for larger */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  gap: 10px; /* Space between images */
+}
+
+/* The images themselves */
+.gallery-img {
+  width: 100%;
+  height: 150px; /* Fixed height keeps rows even */
+  object-fit: cover; /* This cuts the image slightly so it doesn't stretch/squash */
+  border-radius: 8px; /* Optional: rounded corners */
+  transition: transform 0.2s; /* Optional: smooth zoom effect */
+}
+
+/* Optional: Hover effect */
+.gallery-img:hover {
+  transform: scale(1.05);
+}
         .card-image {
             background-size: cover;
             background-position: center top; /* Aligns image to the top */
@@ -144,6 +216,13 @@
     </style>
 </head>
 <body class="bg-brand-bg text-brand-base font-sans antialiased">
+   <!-- PRELOADER COMPONENT -->
+    <div id="preloader">
+        <div class="preloader-text-container">
+            <h1 class="preloader-brand text-3xl md:text-5xl lg:text-6xl ">Memuci Lifestyle</h1>
+            <p class="preloader-tagline md:text-xs font-medium text-[10px]">Soft living, real talk, Everyday joy</p>
+        </div>
+    </div>
 
     <!-- Header Section -->
     <header id="header" class="bg-brand-bg sticky top-0 z-50 border-b border-brand-border">
@@ -172,6 +251,7 @@
                             <li><a href="#" @click="open = false" data-target="explore-stories-page" class="page-link text-brand-base hover:text-brand-accent">Stories</a></li>
                             <li><a href="#" @click="open = false" data-target="podcast-page" class="page-link text-brand-base hover:text-brand-accent">Podcast</a></li>
                             <li><a href="#" @click="open = false" data-target="show-page" class="page-link text-brand-base hover:text-brand-accent">Show</a></li>
+                             <li><a href="#" @click="open = false" data-target="events-page" class="page-link text-brand-base hover:text-brand-accent">Upcoming Events</a></li>
                         </ul>
                     </div>
                 </div>
@@ -250,6 +330,7 @@
                     <a href="#" data-target="explore-stories-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Stories</a>
                     <a href="#" data-target="podcast-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Podcast</a>
                     <a href="#" data-target="show-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Show</a>
+                     <a href="#" data-target="events-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Upcoming Events</a>
                 </div>
              </div>
 
@@ -261,12 +342,12 @@
                 <div x-show="open" x-cloak class="bg-brand-bg border-b border-brand-border">
                     <a href="#" data-target="fitness-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Fitness</a>
                     <a href="#" data-target="recipes-collection-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Recipes</a>
-                    <a href="#" data-target="adulting-page" class="page-link block py-3 px-8 text-sm hover:bg-white pt-4 border-t border-brand-border">Pillar: Adulting</a>
-                    <a href="#" data-target="motherhood-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Pillar: Motherhood</a>
-                    <a href="#" data-target="beauty-wellness-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Pillar: Beauty</a>
+                    <a href="#" data-target="adulting-page" class="page-link block py-3 px-8 text-sm hover:bg-white pt-4 border-t border-brand-border">Adulting</a>
+                    <a href="#" data-target="motherhood-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Motherhood</a>
+                    <a href="#" data-target="beauty-wellness-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Beauty</a>
                     <a href="#" data-target="home-living-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Pillar: Home</a>
-                    <a href="#" data-target="wine-conversations-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Pillar: Wine</a>
-                    <a href="#" data-target="community-culture-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Pillar: Community</a>
+                    <a href="#" data-target="wine-conversations-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Wine</a>
+                    <a href="#" data-target="community-culture-page" class="page-link block py-3 px-8 text-sm hover:bg-white">Community</a>
                 </div>
              </div>
 
@@ -447,8 +528,6 @@
             </div>
         </div>
     </div>
-
-
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('newsletterPopup', () => ({
@@ -859,47 +938,57 @@ products: {
                 const homeLivingArticle = Object.entries(content.articles).find(([_, a]) => a.category === 'Home & Slow Living');
                 
                 const galleryImages = {
-                    travels: [
-                        "https://images.unsplash.com/photo-1501785888041-af3ef285b470", "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1", "https://images.unsplash.com/photo-1488646953014-85cb44e25828", "https://images.unsplash.com/photo-1503220317375-aaad61436b1b",
-                        "https://images.unsplash.com/photo-1530789253388-582c481c54b0", "https://images.unsplash.com/photo-1500835556837-99ac94a94552", "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800", "https://images.unsplash.com/photo-1527631746610-bca00a040d60",
-                        "https://images.unsplash.com/photo-1528543606781-2f6e6857f318", "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd", "https://images.unsplash.com/photo-1507525428034-b723a9ce6890", "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd",
-                        "https://images.unsplash.com/photo-1498307833015-e7b400441eb8", "https://images.unsplash.com/photo-1542051841857-5f90071e7989", "https://images.unsplash.com/photo-1505832018843-57151d383818", "https://images.unsplash.com/photo-1502602898657-3e91760c0341",
-                        "https://images.unsplash.com/photo-1483729558449-99ef09a8c325", "https://images.unsplash.com/photo-1534430480872-3498386e7856", "https://images.unsplash.com/photo-1506744038136-46273834b3fb", "https://images.unsplash.com/photo-1539635278303-d4002c07eae3",
-                        "https://images.unsplash.com/photo-1473625247510-8ceb1760943f", "https://images.unsplash.com/photo-1519922639102-1a221a7c881a", "https://images.unsplash.com/photo-1504150558240-0b4fd23ab682", "https://images.unsplash.com/photo-1532976331682-a8eb5ade9f1d"
-                    ],
-                    tours: [
-                        "https://images.unsplash.com/photo-1535358593892-127921447833", "https://images.unsplash.com/photo-1581489189913-0941855a153d", "https://images.unsplash.com/photo-1615638519442-42e77b6a1d4a", "https://images.unsplash.com/photo-1599557049-92f7062a4a2b",
-                        "https://images.unsplash.com/photo-1525078964292-62886105a884", "https://images.unsplash.com/photo-1534710134446-b8a7b3b4d1b7", "https://images.unsplash.com/photo-1547471080-7cc2d_5d88e93", "https://images.unsplash.com/photo-1516426122078-c23e763199c0",
-                        "https://images.unsplash.com/photo-1534341821434-1a35f2df1818", "https://images.unsplash.com/photo-1574717467657-618731b0587a", "https://images.unsplash.com/photo-1524314184646-60787e14889c", "https://images.unsplash.com/photo-1602416974033-285f25a952f4",
-                        "https://images.unsplash.com/photo-1565538749452-f63451515283", "https://images.unsplash.com/photo-1566473952134-928d54ad010d", "https://images.unsplash.com/photo-1569488859353-93d3a7d51784", "https://images.unsplash.com/photo-1526485856403-910543685649",
-                        "https://images.unsplash.com/photo-1594892417743-5778a8779133", "https://images.unsplash.com/photo-1563653123491-913a89a1a09d", "https://images.unsplash.com/photo-1569398322234-8c876f2f2187", "https://images.unsplash.com/photo-1550978939-5e9215003504",
-                        "https://images.unsplash.com/photo-1549643462-8f1952a5e456", "https://images.unsplash.com/photo-1528702748617-c67d29f9c3fd", "https://images.unsplash.com/photo-1518544465-7562f854f738", "https://images.unsplash.com/photo-1564522237810-d54b8a562b26"
-                    ],
-                    "mom-diaries": [
-                        "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4", "https://images.unsplash.com/photo-1593108422119-a1b66511a8a2", "https://images.unsplash.com/photo-1527529482837-4698179dc6ce", "https://images.unsplash.com/photo-1484665754824-2d0963191873",
-                        "https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba", "https://images.unsplash.com/photo-1482235225574-c37692835cf3", "https://images.unsplash.com/photo-1507983936109-3a19e18b08c0", "https://images.unsplash.com/photo-1546015220-45d2d8959ed7",
-                        "https://images.unsplash.com/photo-1616728079860-88abbf1a5f4d", "https://images.unsplash.com/photo-1485182708500-e8f1f3182e2e", "https://images.unsplash.com/photo-1508215886492-c889a721387d", "https://images.unsplash.com/photo-1595152772105-a7e692a8323a",
-                        "https://images.unsplash.com/photo-1545239351-ef35f43d514b", "https://images.unsplash.com/photo-1566004100631-35d015d6a491", "https://images.unsplash.com/photo-1527814223023-e696352d3a33", "https://images.unsplash.com/photo-1530012270924-5b363afd11e4",
-                        "https://images.unsplash.com/photo-1488114312323-5a0d3b6649f3", "https://images.unsplash.com/photo-1491841550275-5b462bf92929", "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b", "https://images.unsplash.com/photo-1531185343486-973658455325",
-                        "https://images.unsplash.com/photo-1484980972926-edee96e0960d", "https://images.unsplash.com/photo-1476492981352-f15562a045a2", "https://images.unsplash.com/photo-1506045353593-01004a187a53", "https://images.unsplash.com/photo-1560380894-26105f23512c"
-                    ],
-                    food: [
-                        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1", "https://images.unsplash.com/photo-1490645935967-10de6ba17025", "https://images.unsplash.com/photo-1607532941433-304659e8198a", "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
-                        "https://images.unsplash.com/photo-1484723050470-8bf10b643034", "https://images.unsplash.com/photo-1482049016688-2d3e1b311543", "https://images.unsplash.com/photo-1504674900247-0877df9cc836", "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
-                        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38", "https://images.unsplash.com/photo-1473093226795-af9932fe5856", "https://images.unsplash.com/photo-1512621776951-a57141f2eefd", "https://images.unsplash.com/photo-1467003909585-2f8a72700288",
-                        "https://images.unsplash.com/photo-1478145046317-39f10e56b5e9", "https://images.unsplash.com/photo-1496116218417-1a764741a332", "https://images.unsplash.com/photo-1490818387583-1baba5e638af", "https://images.unsplash.com/photo-1505253716362-afb50c68a127",
-                        "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b", "https://images.unsplash.com/photo-1543339308-43e59d6b70a6", "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd", "https://images.unsplash.com/photo-1529990135899-764952093557",
-                        "https://images.unsplash.com/photo-1484984532626-14342a34b4b2", "https://images.unsplash.com/photo-1564834744158-a0b7381275d7", "https://images.unsplash.com/photo-1506354666786-959d6d497f1a", "https://images.unsplash.com/photo-1470337458703-46ad1756a187"
-                    ],
-                    lifestyle: [
-                        "https://images.unsplash.com/photo-1541533267759-d8f48866174c", "https://images.unsplash.com/photo-1441986300917-64674bd600d8", "https://images.unsplash.com/photo-1555212697-194d092e3b8f", "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
-                        "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e", "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688", "https://images.unsplash.com/photo-1505691938895-1758d7feb511", "https://images.unsplash.com/photo-1512212675885-3996924b22c3",
-                        "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af", "https://images.unsplash.com/photo-1501876725168-00c445821c9e", "https://images.unsplash.com/photo-1484154218962-a197022b5858", "https://images.unsplash.com/photo-1505693416388-ac5ce0687954",
-                        "https://images.unsplash.com/photo-1460518451285-97b6aa326961", "https://images.unsplash.com/photo-1516131206008-dd041a97645a", "https://images.unsplash.com/photo-1530018607932-a2538b2dfa43", "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
-                        "https://images.unsplash.com/photo-1523475256011-38ae2b5a4bf4", "https://images.unsplash.com/photo-1503174971373-b1f69850bded", "https://images.unsplash.com/photo-1512918728675-ed5a71a580bd", "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
-                        "https://images.unsplash.com/photo-1497032628192-86f99d791b7e", "https://images.unsplash.com/photo-1521783964894-38c64a382170", "https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba", "https://images.unsplash.com/photo-1511974278737-68b868945836"
-                    ]
-                };
+  travels: [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1",
+    "https://images.unsplash.com/photo-1488646953014-85cb44e25828",
+    "https://images.unsplash.com/photo-1503220317375-aaad61436b1b",
+    "https://images.unsplash.com/photo-1530789253388-582c481c54b0",
+    "https://images.unsplash.com/photo-1500835556837-99ac94a94552",
+    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800",
+    "https://images.unsplash.com/photo-1527631746610-bca00a040d60",
+    "https://images.unsplash.com/photo-1528543606781-2f6e6857f318",
+    "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd"
+  ],
+  tours: [
+    "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9", // Venice Boat Tour
+    "https://images.unsplash.com/photo-1464207687429-7505649dae38", // Group Hiking
+    "https://images.unsplash.com/photo-1504542982118-59308b40fe0c", // Tourist with Map
+    "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7", // Hot Air Balloons
+    "https://images.unsplash.com/photo-1519904981063-b0cf448d479e", // Group Beach/Camping
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee", // Train Journey
+    "https://images.unsplash.com/photo-1520986606214-8b456906c813", // Museum/Gallery Tour
+    "https://images.unsplash.com/photo-1530521954074-e64f6810b32d"  // Travel Luggage/Trip
+  ],
+  "mom-diaries": [
+   "https://images.unsplash.com/photo-1531983412531-1f49a365ffed", // Mom & Baby Hug
+    "https://images.unsplash.com/photo-1555252333-9f8e92e65df9",   // Newborn Sleeping
+    "https://images.unsplash.com/photo-1511895426328-dc8714191300", // Family Walking
+    "https://images.unsplash.com/photo-1476703993599-0035a21b17a9", // Motherhood Detail
+    "https://images.unsplash.com/photo-1519689680058-324335c77eba", // Bedtime Reading
+    "https://images.unsplash.com/photo-1516627145497-ae6968895b74"  // Kids Playing
+  ],
+  food: [
+    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
+    "https://images.unsplash.com/photo-1607532941433-304659e8198a",
+    "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+    "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+    "https://images.unsplash.com/photo-1473093226795-af9932fe5856"
+  ],
+  lifestyle: [
+    "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    "https://images.unsplash.com/photo-1555212697-194d092e3b8f",
+    "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
+    "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+    "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af",
+    "https://images.unsplash.com/photo-1501876725168-00c445821c9e"
+  ]
+};
 
                 const renderGalleryGrid = (images) => {
                     return `
@@ -935,169 +1024,88 @@ products: {
                         </div>
                     `).join('')}
                 </section>
-  <section id="pillars" class="pt-20 pb-10 bg-brand-bg px-6 animate-on-scroll">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-serif text-brand-base">Browse by Pillar</h2>
-                        <p class="text-brand-gray mt-2">Explore content designed for every facet of your life.</p>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-                        ${pillars.map(pillar => `
-                            <a href="#" class="page-link group relative overflow-hidden rounded-lg block" data-target="${pillar.target}">
-                                <img src="${pillar.image}" class="w-full h-48 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300">
-                                <div class="absolute inset-0 bg-black/40"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <h3 class="text-white text-xl font-serif text-center">${pillar.name}</h3>
-                                </div>
-                            </a>`
-                        ).join('')}
-                    </div>
-                </section>
-                <style>
-  /* Fashion Card: 4-image slideshow */
-  @keyframes slide-fashion {
-    0%   { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); }
-    20%  { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); } /* Hold Img 1 */
-    25%  { background-image: url('https://i.pinimg.com/736x/1f/95/99/1f95999c31ed040d950d1d3dca862728.jpg'); } /* Fade to Img 2 */
-    45%  { background-image: url('https://i.pinimg.com/736x/1f/95/99/1f95999c31ed040d950d1d3dca862728.jpg'); } /* Hold Img 2 */
-    50%  { background-image: url('https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg'); } /* Fade to Img 3 */
-    70%  { background-image: url('https://i.pinimg.com/736x/34/5b/f9/345bf902e89d58c9591f648b565aadb1.jpg'); } /* Hold Img 3 */
-    75%  { background-image: url('https://i.pinimg.com/736x/81/8b/15/818b157502a3a2951a834697c8033ed3.jpg'); } /* Fade to Img 4 */
-    95%  { background-image: url('https://i.pinimg.com/736x/81/8b/15/818b157502a3a2951a834697c8033ed3.jpg'); } /* Hold Img 4 */
-    100% { background-image: url('https://i.pinimg.com/736x/f8/47/b4/f847b4f73241940fbb181cefccba4158.jpg'); } /* Fade back to Img 1 */
-  }
-  .card-image-slide-fashion {
-    animation: slide-fashion 16s linear infinite; /* 16s total (4s per image) */
-  }
+<section id="pillars" class="py-10 bg-brand-bg px-4 animate-on-scroll">
+    <div class="text-center mb-6">
+        <h2 class="text-2xl font-serif text-brand-base">Browse by Pillar</h2>
+        <p class="text-brand-gray text-sm mt-1">Explore content designed for your life.</p>
+    </div>
 
-  /* Beauty Card: 2-image slideshow */
-  @keyframes slide-beauty {
-    0%   { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); }
-    45%  { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); } /* Hold Img 1 */
-    50%  { background-image: url('https://i.pinimg.com/736x/4e/13/6d/4e136d48569dd75c7060ec9359286484.jpg'); } /* Fade to Img 2 */
-    95%  { background-image: url('https://i.pinimg.com/736x/4e/13/6d/4e136d48569dd75c7060ec9359286484.jpg'); } /* Hold Img 2 */
-    100% { background-image: url('https://i.pinimg.com/736x/fa/1f/19/fa1f19061700f51f2684821039c01594.jpg'); } /* Fade back to Img 1 */
-  }
-  .card-image-slide-beauty {
-    animation: slide-beauty 8s linear infinite; /* 8s total (4s per image) */
-  }
-
-  /* NEW: Wine Card: 2-image slideshow */
-  @keyframes slide-wine {
-    0%   { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); }
-    45%  { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); } /* Hold Img 1 */
-    50%  { background-image: url('https://i.pinimg.com/1200x/57/42/55/574255f7795f1826ed3580af21b34b96.jpg'); } /* Fade to Img 2 */
-    95%  { background-image: url('https://i.pinimg.com/1200x/57/42/55/574255f7795f1826ed3580af21b34b96.jpg'); } /* Hold Img 2 */
-    100% { background-image: url('https://i.pinimg.com/736x/90/ef/99/90ef99124760785aa7d48c3bf4980a69.jpg'); } /* Fade back to Img 1 */
-  }
-  .card-image-slide-wine {
-    animation: slide-wine 8s linear infinite; /* 8s total (4s per image) */
-  }
-</style>
-
-
-<section id="category-section" class="bg-stone-50 py-16 md:py-24">
-  <div class="container mx-auto px-6">
+    <div class="flex flex-nowrap overflow-x-auto md:justify-center gap-4 pb-2 max-w-6xl mx-auto scrollbar-hide">
+        ${pillars.map(pillar => `
+            <a href="#" class="page-link group relative overflow-hidden rounded-lg flex-none w-40 md:w-48" data-target="${pillar.target}">
+                
+                <img src="${pillar.image}" class="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300">
+                
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+                
+                <div class="absolute inset-0 flex items-center justify-center p-2">
+                    <h3 class="text-white text-lg font-serif text-center leading-tight">${pillar.name}</h3>
+                </div>
+            </a>`
+        ).join('')}
+    </div>
+</section>
+                <section id="category-section" class="bg-white py-10">
+  <div class="container mx-auto px-4">
     
-    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-      <h2 class="text-4xl md:text-5xl font-serif text-brown-900 leading-tight">
-        The Mucè Collective
-      </h2>
-      <p class="text-lg text-gray-600 mt-4">
-        “A modern, curated space for style, culture, and creativity.”
-      </p>
-      <hr class="mt-8 border-gray-300 w-1/4 mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-serif text-stone-900">The Mucè Collective</h2>
+      <p class="text-stone-500 text-sm mt-2">Shop Creativity. Live Beautifully.</p>
     </div>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-8">
 
-      <a href="#" 
-         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
-         data-target="shop-page" data-category="fashion">
-        
-        <div class="relative h-96 overflow-hidden">
-          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-fashion">
-          </div>
+      <a href="#" data-target="shop-page" class="page-link group flex flex-col items-center w-32 md:w-40 p-2 rounded-2xl bg-stone-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-stone-100 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-full h-28 md:h-36 rounded-xl overflow-hidden mb-2 relative bg-white">
+            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=400&q=80" 
+                 alt="Fashion Collection" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
-        
-        <div class="p-6 text-center">
-          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
-            Fashion
-          </h3>
-          <p class="inline-block text-sm text-gray-500 mt-1 
-                    group-hover:text-stone-800 
-                    bg-gradient-to-r from-stone-800 to-stone-800 
-                    bg-no-repeat bg-bottom [background-size:0%_1px] 
-                    group-hover:[background-size:100%_1px] 
-                    transition-all duration-300 ease-in-out">
-            Shop The Collection
-          </p>
-        </div>
+        <h3 class="text-stone-800 font-semibold text-center text-sm">Fashion</h3>
+        <p class="text-xs text-stone-400 group-hover:text-stone-600">Shop Now</p>
       </a>
 
-      <a href="#" 
-         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
-         data-target="shop-page" data-category="beauty">
-        
-        <div class="relative h-96 overflow-hidden">
-          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-beauty">
-          </div>
+      <a href="#" data-target="shop-page" class="page-link group flex flex-col items-center w-32 md:w-40 p-2 rounded-2xl bg-stone-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-stone-100 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-full h-28 md:h-36 rounded-xl overflow-hidden mb-2 relative bg-white">
+            <img src="https://mybigorder.com/public/uploads/all/K0Q6riWvjToqaNfV7JAf5TwKPK0ZEu2eLEIXOiUD.png" 
+                 alt="Beauty Products" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
-        
-        <div class="p-6 text-center">
-          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
-            Beauty
-          </h3>
-          <p class="inline-block text-sm text-gray-500 mt-1 
-                    group-hover:text-stone-800 
-                    bg-gradient-to-r from-stone-800 to-stone-800 
-                    bg-no-repeat bg-bottom [background-size:0%_1px] 
-                    group-hover:[background-size:100%_1px] 
-                    transition-all duration-300 ease-in-out">
-            Shop The Collection
-          </p>
-        </div>
+        <h3 class="text-stone-800 font-semibold text-center text-sm">Beauty</h3>
+        <p class="text-xs text-stone-400 group-hover:text-stone-600">Shop Now</p>
       </a>
-      
-      <a href="#" 
-         class="page-link group block bg-white rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl overflow-hidden" 
-         data-target="shop-page" data-category="wine">
-        
-        <div class="relative h-96 overflow-hidden">
-          <div class="absolute inset-0 card-image bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-105 card-image-slide-wine">
-          </div>
+
+      <a href="#" data-target="shop-page" class="page-link group flex flex-col items-center w-32 md:w-40 p-2 rounded-2xl bg-stone-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-stone-100 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-full h-28 md:h-36 rounded-xl overflow-hidden mb-2 relative bg-white">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&q=80" 
+                 alt="Fine Wine" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
-        
-        <div class="p-6 text-center">
-          <h3 class="text-lg font-semibold uppercase tracking-wider text-stone-800">
-            Wine
-          </h3>
-          <p class="inline-block text-sm text-gray-500 mt-1 
-                    group-hover:text-stone-800 
-                    bg-gradient-to-r from-stone-800 to-stone-800 
-                    bg-no-repeat bg-bottom [background-size:0%_1px] 
-                    group-hover:[background-size:100%_1px] 
-                    transition-all duration-300 ease-in-out">
-            Shop The Collection
-          </p>
+        <h3 class="text-stone-800 font-semibold text-center text-sm">Wine</h3>
+        <p class="text-xs text-stone-400 group-hover:text-stone-600">Shop Now</p>
+      </a>
+
+      <a href="#" data-target="shop-page" class="page-link group flex flex-col items-center w-32 md:w-40 p-2 rounded-2xl bg-stone-50 hover:bg-white hover:shadow-xl border border-transparent hover:border-stone-100 transition-all duration-300 transform hover:-translate-y-1">
+        <div class="w-full h-28 md:h-36 rounded-xl overflow-hidden mb-2 relative bg-white">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80" 
+                 alt="Modern Lifestyle" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
+        <h3 class="text-stone-800 font-semibold text-center text-sm">Lifestyle</h3>
+        <p class="text-xs text-stone-400 group-hover:text-stone-600">Shop Now</p>
       </a>
 
     </div>
 
-    <div class="text-center mt-16">
-        <a href="#" 
-           class="page-link inline-block bg-transparent text-stone-800 py-3 px-10 text-sm font-semibold cta-button uppercase tracking-wider rounded-md
-                  border border-stone-800
-                  transition-all duration-300
-                  hover:bg-brown-800 hover:text-white
-                  focus:outline-none focus:ring-2 focus:ring-brown-800 focus:ring-opacity-50"
-           data-target="shop-page" data-category="all">
-          Explore The Full Collection
-        </a>
+    <div class="text-center">
+      <a href="#" data-target="shop-page" class="page-link inline-block bg-stone-900 text-white py-3 px-8 rounded-full text-sm font-medium hover:bg-stone-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+         Explore The Full Collection
+      </a>
     </div>
 
   </div>
 </section>
+
                  <section class="relative bg-brand-base text-white py-20 px-6 animate-on-scroll">
                      <div class="absolute inset-0 opacity-10">
                         <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
@@ -1145,7 +1153,43 @@ products: {
                 ${renderArticleScrollerSection('Beauty & Wellness', 
                     Object.entries(content.articles).filter(([_,a]) => a.category === 'Beauty & Wellness').slice(0,6).map(([title, article]) => ({ ...article, title })), 'beauty-wellness-page')}
 
-                ${renderGridSection('Adulting & Real Talk', adultingArticles, 'adulting-page')}
+              <section class="py-16 px-6 animate-on-scroll">
+                    <div class="container mx-auto">
+                        
+                        <div class="text-center mb-10">
+                            <h2 class="text-3xl font-serif text-brand-base">Adulting & Real Talk</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                            ${Object.entries(content.articles)
+                                .filter(([_, article]) => article.category === "Adulting & Real Talk")
+                                .slice(0, 3)
+                                .map(([title, article]) => `
+                                    <a href="#" class="page-link group relative block h-80 overflow-hidden rounded-xl shadow-sm" 
+                                       data-target="article-page" 
+                                       data-title="${title}">
+                                        
+                                        <img src="${article.image}" alt="${title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                        
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                                        
+                                        <div class="absolute bottom-0 left-0 w-full p-6">
+                                            <h3 class="text-white text-xl font-serif leading-tight group-hover:text-brand-gold transition-colors">
+                                                ${title.split('–')[0]}
+                                            </h3>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                        </div>
+
+                        <div class="text-center">
+                            <a href="#" class="page-link inline-block border-b-2 border-brand-base text-brand-base pb-1 text-sm font-semibold uppercase tracking-wider hover:text-brand-dark hover:border-brand-dark transition-colors" 
+                               data-target="adulting-page">
+                                Read More Articles
+                            </a>
+                        </div>
+                    </div>
+                </section>
                 
                 <section class="py-20 bg-brand-bg px-6 animate-on-scroll">
                     <div class="container mx-auto">
@@ -1244,7 +1288,7 @@ products: {
             <!-- Column 1: Info & Details -->
             <div class="pr-0 md:pr-8">
                 <p class="text-sm font-semibold uppercase text-brand-base">WE'RE HERE TO HELP YOU</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Let's Discuss Your Needs</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Get in Touch With Us </h2>
                 <p class="text-gray-600 mt-4 text-lg">
                     Looking for top-quality lifestyle products or have a question for the memuci team? Reach out to us.
                 </p>
@@ -1828,32 +1872,13 @@ const renderProductPage = (data) => {
             };
 
             const renderShopPage = () => {
-    return `
-    <section class="relative h-[50vh] bg-cover bg-center text-white flex items-center justify-center text-center" style="background-image: url('https://cdn.pixabay.com/photo/2025/05/20/10/57/t-shirt-9611332_960_720.jpg');">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="relative z-10 container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-serif leading-tight max-w-lg mx-auto">The Mucè Collective</h1>
-            <p class="text-lg mt-4 max-w-lg mx-auto">A modern, curated space for style, culture, and creativity.</p>
-        </div>
-                </section>
-                <div id="product-grid" class="py-20 px-6">
-                    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        ${Object.entries(content.products).map(([title, product]) => `
-                             <div class="group relative">
-                                <a href="#" class="page-link block" data-target="product-page" data-title="${title}">
-                                    <div class="overflow-hidden rounded-lg bg-brand-secondary-bg"><img src="${product.defaultImage}" class="w-full h-96 object-cover group-hover:opacity-80 transition-opacity"></div>
-                                    <div class="pt-4 text-center">
-                                        <h3 class="text-base font-semibold text-brand-base mt-1 group-hover:text-brand-accent">${title}</h3>
-                                        <p class="text-sm text-brand-gray">Ksh ${product.price.toLocaleString()}</p>
-                                    </div>
-                                </a>
-                                <button class="add-to-cart-quick-btn absolute top-4 right-4 bg-white/80 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity" data-title="${title}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-base" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-                                </button>
-                             </div>
-                        `).join('')}
-                    </div>
-                </div>`;
+                return `
+                <div class="py-40 px-6 text-center">
+                    <h1 class="text-4xl font-serif text-brand-base">Our Shop</h1>
+                    <p class="text-brand-gray text-lg mt-4 max-w-xl mx-auto">Coming Soon!</p>
+                    <p class="text-brand-gray mt-2 max-w-xl mx-auto">We are working hard to curate a beautiful collection for you. Please check back later!</p>
+                </div>
+                `;
             };
 // REPLACE your old 'document.body.addEventListener' with this one
 
@@ -2053,6 +2078,22 @@ document.body.addEventListener('click', (event) => {
                 </div>`;
             };
             
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const hasVisited = sessionStorage.getItem('memuciVisited');
+
+        if (hasVisited) {
+            // IF VISITED: Hide immediately (Instant)
+            const preloader = document.getElementById('preloader');
+            if (preloader) preloader.style.display = 'none';
+        } else {
+            // IF FIRST VISIT: Mark as visited and wait for animation
+            sessionStorage.setItem('memuciVisited', 'true');
+            
+            // Wait 3 seconds, then remove
+            setTimeout(removePreloader, 3000);
+        }
+    });
             const renderFitnessPage = () => {
                 const fitnessArticles = Object.entries(content.articles)
                     .filter(([_, a]) => a.subcategory === 'Workouts' || a.subcategory === 'Yoga' || a.title === "Beyond the Gym: Finding Joy in Movement")
@@ -2469,6 +2510,32 @@ if (pageId === 'product-page') {
                     addToCart(productData);
                 }
             });
+            // --- PRELOADER LOGIC (Immediate Execution) ---
+(function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Check if user has visited in this session
+        const hasSeenPreloader = sessionStorage.getItem('memuci_preloader_seen'); // <--- LINE CHECKING SESSION
+
+        if (hasSeenPreloader) {
+            // If already seen, hide immediately
+            preloader.style.display = 'none';
+        } else {
+            // If first time, wait for load then fade out
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    // Remove from DOM after transition ends
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800); // 800ms matches CSS transition
+                    // Mark as seen for this session
+                    sessionStorage.setItem('memuci_preloader_seen', 'true');
+                }, 2000); // <--- THIS IS THE TIMEOUT YOU WANT TO CHANGE
+            });
+        }
+    }
+})();
             
             window.addEventListener('popstate', (event) => {
                 if (event.state) showPage(event.state.pageId, event.state.data, false);
@@ -2635,17 +2702,3 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
