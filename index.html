@@ -517,19 +517,39 @@
     </div>
 
     <div id="sale-popup-overlay" class="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center hidden">
-        <div id="sale-popup-content" class="relative w-full h-full flex items-center justify-center">
-            <button id="close-sale-popup-btn" class="absolute top-6 right-6 text-white hover:opacity-75 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop'); opacity: 0.5;"></div>
-            <div class="relative text-center text-white p-8">
-                 <h2 class="text-6xl md:text-8xl font-serif font-light leading-none">50% OFF!</h2>
-                 <p class="text-2xl md:text-3xl uppercase tracking-widest mt-2">Leather Bags Mega Sale</p>
-                 <p class="mt-4 max-w-md">Our biggest sale of the season is here. Discover our collection of timeless leather bags, now at half the price.</p>
-                 <a href="#" data-target="shop-page" class="page-link sale-popup-shop-now mt-8 inline-block bg-white text-brand-base py-4 px-12 text-base font-semibold cta-button uppercase tracking-wider rounded-md">Shop Now</a>
-            </div>
-        </div>
-    </div>
+    <div id="sale-popup-content" class="relative w-full h-full flex items-center justify-center">
+        
+        <button id="close-sale-popup-btn" class="absolute top-6 right-6 text-white hover:opacity-75 z-20 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <div class="absolute inset-0 bg-cover bg-center z-0" 
+             style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop'); opacity: 0.5;">
+        </div>
+
+        <div class="relative z-10 text-center text-white p-8 flex flex-col items-center justify-center max-w-4xl mx-auto">
+             
+             <h2 class="text-6xl md:text-8xl font-serif font-light leading-none drop-shadow-lg">
+                50% OFF!
+             </h2>
+             
+             <p class="text-2xl md:text-3xl uppercase tracking-widest mt-2 drop-shadow-md">
+                Leather Bags Mega Sale
+             </p>
+             
+             <p class="mt-4 max-w-md mx-auto text-lg leading-relaxed drop-shadow-md">
+                Our biggest sale of the season is here. Discover our collection of timeless leather bags, now at half the price.
+             </p>
+             
+             <a href="#" data-target="shop-page" class="page-link sale-popup-shop-now mt-8 inline-block bg-white text-brand-base py-4 px-12 text-base font-semibold cta-button uppercase tracking-wider rounded-md hover:scale-105 transition-transform">
+                Shop Now
+             </a>
+
+        </div>
+    </div>
+</div>
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('newsletterPopup', () => ({
@@ -2939,3 +2959,4 @@ if (pageId === 'product-page') {
     </a>
 </body>
 </html>
+
