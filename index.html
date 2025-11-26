@@ -3100,7 +3100,36 @@ if (pageId === 'product-page') {
         </div>
     </div>
 </div>
+<script>
+    function copyToClipboard() {
+        // The clean number to copy (without spaces) so it's easy to paste
+        const numberToCopy = "0708773943";
 
+        // Use the modern clipboard API
+        navigator.clipboard.writeText(numberToCopy).then(() => {
+            
+            // 1. Select the elements
+            const feedback = document.getElementById('copy-feedback');
+            const numberText = document.getElementById('mpesa-number-display');
+
+            // 2. Show the "COPIED!" tooltip
+            feedback.classList.remove('opacity-0');
+            
+            // 3. Optional: Turn the text green briefly to show success
+            numberText.classList.add('text-green-300');
+
+            // 4. Hide everything again after 2 seconds
+            setTimeout(() => {
+                feedback.classList.add('opacity-0');
+                numberText.classList.remove('text-green-300');
+            }, 2000);
+
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+            alert("Could not copy number automatically. Please select and copy manually.");
+        });
+    }
+</script>
 <script>
     // Elements
     const teaserBtn = document.getElementById('sale-teaser');
