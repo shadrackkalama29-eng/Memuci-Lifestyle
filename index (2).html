@@ -2879,106 +2879,163 @@ if (pageId === 'product-page') {
         visibility: visible;
     }
 </style>
-<div id="outreach-page" class="hidden fixed inset-0 z-50 bg-white overflow-y-auto">
+<div id="outreach-page" class="hidden fixed inset-0 z-50 bg-white overflow-y-auto font-sans">
     
-    <button id="close-outreach" class="fixed top-6 right-6 z-50 bg-white text-gray-900 rounded-full p-3 shadow-lg hover:bg-gray-100 transition-colors border border-gray-200 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:rotate-90 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    <button id="close-outreach" class="fixed top-4 right-4 z-50 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full p-3 shadow-2xl hover:bg-white hover:text-gray-900 transition-all duration-300 group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:rotate-90 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
     </button>
 
-    <div class="relative h-[40vh] bg-gray-900 flex items-center justify-center">
+    <div class="relative h-[40vh] lg:h-[45vh] bg-gray-900 flex items-end justify-center pb-12">
         <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute inset-0 bg-black/60 z-10"></div>
-            <img src="https://i.pinimg.com/736x/a9/b8/b3/a9b8b30ef37082a8dfeecc2836136c76.jpg" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent z-10"></div>
+            <img src="https://i.pinimg.com/736x/a9/b8/b3/a9b8b30ef37082a8dfeecc2836136c76.jpg" class="w-full h-full object-cover opacity-90">
         </div>
-        <div class="relative z-20 text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-serif text-white mb-4 tracking-tight">Our Impact</h1>
-            <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light">"Sharing meals and hope with the future of our community."</p>
+        
+        <div class="relative z-20 text-center px-6 w-full max-w-4xl mx-auto transform translate-y-4">
+            <span class="block text-xs md:text-sm font-bold tracking-[0.3em] text-green-400 uppercase mb-4 opacity-90">Community Outreach</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-4 tracking-tight">
+                <span class="italic font-light opacity-90">The</span> Impact Project
+            </h1>
+            <p class="text-sm md:text-lg text-white/90 font-light italic tracking-wide">"Sharing meals, spreading hope."</p>
         </div>
     </div>
 
-    <div class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+    <div class="container mx-auto px-4 md:px-8 py-8 lg:py-16 -mt-6 relative z-30">
+        <div class="bg-white rounded-t-3xl md:rounded-3xl shadow-xl p-6 md:p-12 max-w-6xl mx-auto border border-gray-100 min-h-screen md:min-h-0">
             
-            <div class="flex flex-col justify-center h-full">
-                <div class="inline-block bg-[#d9e5dc] text-brand-base font-bold px-4 py-2 rounded-full text-sm uppercase tracking-wider mb-6 w-max">
-                    Save The Date
-                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                 
-                <h2 class="text-4xl md:text-6xl font-serif text-gray-900 mb-6 leading-none">
-                    Christmas <br>
-                    <span class="text-brand-base">Street Feeding.</span>
-                </h2>
-                
-                <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    This December 25th, we are taking our gratitude to the streets. We will be distributing hot meals, drinks, and essential care packages to street families and children in the CBD. 
-                    <br><br>
-                    Our goal is to ensure no child goes hungry on Christmas day. Your contribution goes directly to purchasing food ingredients, packaging, and water.
-                </p>
-
-                <div class="grid grid-cols-2 gap-6 border-t border-gray-100 pt-8">
-                    <div>
-                        <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Date</p>
-                        <p class="text-xl font-serif text-gray-900">Dec 25th, 2025</p>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-400 uppercase font-bold tracking-wider">Target</p>
-                        <p class="text-xl font-serif text-gray-900">500+ Meals</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative">
-                <div class="absolute -inset-4 bg-gradient-to-r from-green-100 to-emerald-50 rounded-2xl transform rotate-2"></div>
-                
-                <div class="relative bg-white p-0 rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                    <div class="p-8 bg-gray-50 border-b border-gray-100 text-center">
-                        <h3 class="text-2xl font-serif text-gray-900">Donate via M-PESA</h3>
-                        <p class="text-gray-500 text-sm mt-1">Support the initiative directly</p>
-                    </div>
-
-                    <div class="p-8">
-                        <div class="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] rounded-xl p-6 text-white shadow-lg relative overflow-hidden transform transition hover:scale-[1.01] duration-300">
-                            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-10 rounded-full"></div>
-                            <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-16 h-16 bg-white opacity-10 rounded-full"></div>
-
-                            <div class="flex justify-between items-start mb-6">
-                                <div>
-                                    <p class="text-xs uppercase tracking-wider font-semibold opacity-90">Payment Method</p>
-                                    <p class="text-sm font-light opacity-80">Pochi la Biashara</p>
-                                </div>
-                                <div class="font-bold italic tracking-tighter text-xl">M-PESA</div>
-                            </div>
-
-                            <div class="mb-4">
-                                <p class="text-4xl font-mono font-bold tracking-tight">0708 773 943</p>
-                                <p class="text-xs mt-2 font-medium opacity-90 uppercase tracking-widest">Carolyne Kirgotty</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-8 space-y-3">
-                            <div class="flex items-center p-3 rounded-lg bg-gray-50 border border-gray-100">
-                                <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mr-3">1</span>
-                                <span class="text-sm text-gray-600">Go to <b>Lipa na M-PESA</b></span>
-                            </div>
-                            <div class="flex items-center p-3 rounded-lg bg-gray-50 border border-gray-100">
-                                <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mr-3">2</span>
-                                <span class="text-sm text-gray-600">Select <b>Pochi la Biashara</b></span>
-                            </div>
-                            <div class="flex items-center p-3 rounded-lg bg-gray-50 border border-gray-100">
-                                <span class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-xs font-bold mr-3">3</span>
-                                <span class="text-sm text-gray-600">Enter No: <b>0708 773 943</b></span>
-                            </div>
-                        </div>
+                <div class="flex flex-col justify-center h-full order-1">
+                    
+                    <div class="flex items-center space-x-3 mb-6">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                        </span>
+                        <span class="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">Save The Date</span>
                     </div>
                     
-                    <div class="bg-gray-900 text-white p-4 text-center text-sm">
-                        Prefer to donate foodstuff? <a href="tel:0708773943" class="underline font-bold hover:text-green-400">Call Us</a>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 leading-[0.9]">
+                        Christmas <br>
+                        <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">Street Feeding.</span>
+                    </h2>
+                    
+                    <p class="text-gray-500 text-sm md:text-base leading-loose font-light mb-8 border-l-2 border-green-100 pl-6">
+                        This December 25th, we elevate our gratitude by returning to the streets. We are curating an experience of dignity—distributing hot gourmet meals and essential care packages to families in the CBD.
+                    </p>
+
+                    <div class="mb-10">
+                        <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-4">Moments of Joy</p>
+                        <div class="flex space-x-4 overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
+                            <div class="w-32 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-sm relative group">
+                                <img src="https://i.pinimg.com/1200x/4f/fc/bf/4ffcbfe77bdc02d00f1ead1873173bb0.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                            </div>
+                            <div class="w-32 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-sm relative group">
+                                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                            </div>
+                            <div class="w-32 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden shadow-sm relative group">
+                                <img src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">When</p>
+                            <p class="text-xl font-serif italic text-gray-900">Dec 25th</p>
+                        </div>
+                        <div class="h-8 w-px bg-gray-100"></div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Goal</p>
+                            <p class="text-xl font-serif italic text-gray-900">500+ Meals</p>
+                        </div>
+                        <div class="h-8 w-px bg-gray-100"></div>
+                        <div>
+                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Loc</p>
+                            <p class="text-xl font-serif italic text-gray-900">CBD</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <div class="relative order-2">
+                    
+                    <div class="relative bg-white p-0 rounded-2xl shadow-2xl shadow-green-900/10 border border-gray-100 overflow-hidden">
+                        <div class="p-6 bg-gray-50/50 border-b border-gray-100 text-center">
+                            <h3 class="text-xl font-serif text-gray-900">Make a Donation</h3>
+                            <p class="text-gray-400 text-xs mt-1 tracking-wide">Secure Mobile Payment</p>
+                        </div>
+
+                        <div class="p-6 md:p-8">
+                            <div class="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] rounded-xl p-6 text-white shadow-lg relative overflow-hidden transform transition hover:scale-[1.01] duration-300">
+                                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white opacity-10 rounded-full"></div>
+                                <div class="absolute bottom-0 left-0 -mb-4 -ml-4 w-16 h-16 bg-white opacity-10 rounded-full"></div>
+
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <p class="text-[10px] uppercase tracking-wider font-semibold opacity-90">Payment Method</p>
+                                        <p class="text-sm font-light opacity-80">Pochi la Biashara</p>
+                                    </div>
+                                    <div class="font-bold italic tracking-tighter text-xl">M-PESA</div>
+                                </div>
+
+                               <div class="mb-4 relative group cursor-pointer" onclick="copyToClipboard()">
+    
+    <div id="copy-feedback" class="absolute -top-10 left-0 bg-gray-900 text-white text-[10px] font-bold py-1 px-3 rounded shadow-lg opacity-0 transition-opacity duration-300 pointer-events-none transform translate-x-4">
+        COPIED!
+    </div>
+
+    <div class="flex items-center space-x-3">
+        <p id="mpesa-number-display" class="text-3xl md:text-4xl font-mono font-bold tracking-tight border-b border-transparent group-hover:border-white/50 transition-all duration-300">
+            0708 773 943
+        </p>
+        <div class="bg-white/20 p-2 rounded-full opacity-60 group-hover:opacity-100 transition-all hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+            </svg>
+        </div>
+    </div>
+    
+    <div class="flex items-center mt-2 space-x-3">
+        <span class="text-[9px] bg-white/20 px-2 py-0.5 rounded text-white/90 hidden group-hover:inline-block transition-opacity">Tap Number</span>
+    </div>
+</div>
+                                    <p class="text-[10px] mt-2 font-medium opacity-90 uppercase tracking-widest">Carolyne Kirgotty</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 space-y-3">
+                                <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-colors cursor-default">
+                                    <span class="w-6 h-6 rounded-full bg-green-50 text-green-700 flex items-center justify-center text-[10px] font-bold mr-4 border border-green-100">1</span>
+                                    <span class="text-sm text-gray-600 font-light">Go to <b>Lipa na M-PESA</b></span>
+                                </div>
+                                <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-colors cursor-default">
+                                    <span class="w-6 h-6 rounded-full bg-green-50 text-green-700 flex items-center justify-center text-[10px] font-bold mr-4 border border-green-100">2</span>
+                                    <span class="text-sm text-gray-600 font-light">Select <b>Pochi la Biashara</b></span>
+                                </div>
+                                <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-colors cursor-default">
+                                    <span class="w-6 h-6 rounded-full bg-green-50 text-green-700 flex items-center justify-center text-[10px] font-bold mr-4 border border-green-100">3</span>
+                                    <span class="text-sm text-gray-600 font-light">Enter No: <b>0708 773 943</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900 text-white p-4 text-center text-xs tracking-wide">
+    <span class="opacity-70">Can't donate money?</span> 
+    <a href="https://wa.me/254708773943?text=Hi%2C%20I%27d%20love%20to%20volunteer%20and%20be%20part%20of%20the%20impact%20this%20Christmas." 
+       target="_blank" 
+       class="ml-1 underline decoration-green-500 underline-offset-4 hover:text-green-400 transition-colors">
+       Volunteer with us
+    </a>
+</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
